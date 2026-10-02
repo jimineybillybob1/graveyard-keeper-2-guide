@@ -18,7 +18,7 @@
     choose: 'Choose which copy to keep', error: 'Cloud unavailable', offline: 'Offline · local progress kept'
   };
   const date = value => value ? new Date(value).toLocaleString() : 'Not saved';
-  const summary = save => `Week ${save.week}, ${['Gluttony','Sloth','Lust','Envy','Pride','Wrath'][save.day]} · ${save.quests.length} quests · ${save.milestones.length} milestones`;
+  const summary = save => `Week ${save.week}, ${['Gluttony','Sloth','Lust','Envy','Pride','Wrath'][save.day]} · ${save.quests.length} quests · ${save.milestones.length} milestones · ${(save.technologies||[]).length} technologies · ${Object.values(save.inspirations||{}).reduce((sum,n)=>sum+n,0)} inspiration levels`;
   function persist() { localStorage.setItem(META, JSON.stringify(meta)); }
   function backups() { try { const list = JSON.parse(localStorage.getItem(BACKUPS) || '[]'); return Array.isArray(list) ? list : []; } catch { return []; } }
   function backup(reason) {

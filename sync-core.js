@@ -42,6 +42,11 @@
   }
   function canonical(save) {
     const result = { ...save }; delete result.updatedAt;
+    result.technologies = [...(result.technologies || [])].sort();
+    result.inspirations = Object.fromEntries(Object.entries(result.inspirations || {}).filter(([,n]) => n > 0).sort(([a],[b]) => a.localeCompare(b)));
+    // Empty optional fields must keep pre-upgrade cloud fingerprints unchanged.
+    if (!result.technologies.length) delete result.technologies;
+    if (!Object.keys(result.inspirations).length) delete result.inspirations;
     for (const k of ['milestones', 'quests', 'favourites', 'caught', 'visited']) result[k] = [...result[k]].sort();
     result.queue = result.queue.map(q => ({ id: q.id, batches: q.batches })).sort((a, b) => a.id.localeCompare(b.id));
     return JSON.stringify(Object.fromEntries(Object.keys(result).sort().map(k => [k, result[k]])));

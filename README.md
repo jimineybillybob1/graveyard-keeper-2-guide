@@ -15,12 +15,14 @@ For a predictable save location, keep using the same browser and address. The pu
 - Six-day planner with 13 progress milestones and conditional reminders.
 - Searchable catalogue of 609 item records, ingredient links, uses and favourites.
 - 509 recipe variants, cooking filters and a combined direct-ingredient crafting list.
-- Actual world map, 51 waypoint records, touch-sized clusters, zoom, layers and visited markers.
+- Searchable technology tree: 226 nodes, prerequisite paths, costs, reputation gates and linked crafting recipes.
+- Searchable inspirations: 73 tracks and 382 levels, appearance conditions, cumulative goals, Faith costs and talent XP.
+- Actual world map, 51 waypoint records, touch-sized clusters, mouse/pen drag panning, native touch scrolling, zoom, layers and visited markers.
 - 18 character overviews (later characters can be hidden).
 - Concise walkthrough routes for all four story chapters, with links to detailed source guides.
 - 31 fishing rows, covering locations, bait, stock, day/night odds and catches.
 - 243 quest stages with linked prerequisites; 98 have structured checks or hand-ins.
-- Notes, local progress saving, JSON export/import and same-browser tab updates.
+- Notes, technology unlock marks and purchased inspiration levels, local progress saving, JSON export/import, encrypted cloud sync and same-browser tab updates.
 
 ## Content boundaries
 
@@ -30,7 +32,7 @@ The source flags 118 item records as having no known source. 34 records have no 
 
 The catalogue also includes source-listed gathering operations with no ingredient cost. Those entries are not evidence that materials can be created for free at an ordinary bench.
 
-The chapter routes are concise guidance, not a reproduction of the source walkthroughs. Dialogue and detailed quest conditions remain available through the links. No save-file reading or automatic in-game progress detection is implemented. Week/day are set manually.
+The chapter routes are concise guidance, not a reproduction of the source walkthroughs. Dialogue and detailed quest conditions remain available through the links. No save-file reading or automatic in-game progress detection is implemented. Week/day are set manually. Technology marks and inspiration levels are also entered manually. Older progress files load with those new fields empty. Hidden technology triggers are only shown where the source identifies them; unknown reveal events are labelled, not guessed. Holy Routine is explicitly marked as currently impossible to complete.
 
 Story visibility hides later quest stages and character cards. Item names, the physical map and planner milestones can reveal game systems. Full story visibility can be enabled in Save & settings.
 
@@ -55,6 +57,10 @@ Export/import round trips, malformed-file rejection, chapter visibility and the 
 - `index.html`, `style.css`, `app.js`: website.
 - `data.js`: structured factual snapshot; item IDs and quest IDs follow the source.
 - `chapters.js`: concise chapter routes.
+- `unlock-data.js`, `unlocks.js`: source-backed technology and inspiration data, search, tracking and recipe links.
+- `map-pan.js`: pointer panning without image dragging.
 - `assets/`: locally stored map and game icons.
 
 Unofficial fan project. Graveyard Keeper II and its assets belong to their respective owners, including Lazy Bear Games and tinyBuild. Source data and coordinates: https://gk2db.org/.
+
+Browser regression tests for the new sections and gestures are in `tests/unlocks-browser.cjs` (requires Playwright with Edge available). Set GUIDE_URL to test a published guide; it defaults to the local preview. Tests cover prerequisite references, search, links, save migration, tracking, mouse and touch panning, and responsive layouts.

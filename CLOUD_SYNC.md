@@ -2,7 +2,7 @@
 
 In **Save & sync**, create a code on the device holding your progress and choose **Save to cloud**. Keep the code privately. On another device, enter it, choose **Use this code**, then **Load from cloud**. Use the same published guide address on each device.
 
-Local changes save automatically. Cloud uploads and downloads are manual. Returning to the guide or reconnecting checks for updates but never silently uploads or replaces local progress. If both copies changed, compare them and choose which to keep. This synchronizes the guide's calendar, milestones, quests, favourites, catches, visited places, crafting list, notes and spoiler setting—not the game's own save files.
+Local changes save automatically. Cloud uploads and downloads are manual. Returning to the guide or reconnecting checks for updates but never silently uploads or replaces local progress. If both copies changed, compare them and choose which to keep. This synchronizes the guide's calendar, milestones, technology unlock marks, purchased inspiration levels, quests, favourites, catches, visited places, crafting list, notes and spoiler setting—not the game's own save files.
 
 ## Recovery
 
