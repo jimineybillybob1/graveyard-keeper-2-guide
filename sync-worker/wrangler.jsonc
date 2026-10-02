@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "graveyard-keeper-2-guide-sync",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-02",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGINS": "https://jimineybillybob1.github.io"
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "SAVES", "class_name": "LedgerSave" }]
+  },
+  "exports": {
+    "LedgerSave": { "type": "durable-object", "storage": "sqlite" }
+  },
+  "observability": { "enabled": false }
+}

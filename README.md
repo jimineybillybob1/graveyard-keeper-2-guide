@@ -1,6 +1,6 @@
 # The Keeper’s Ledger
 
-A personal Graveyard Keeper II companion, designed for touch use on an iPad. This is a static website published with GitHub Pages. No account or cloud-sync service is connected.
+A personal Graveyard Keeper II companion, designed for touch use on an iPad. This is a static website published with GitHub Pages. Cloudflare provides optional encrypted cloud saves using a private sync code. No email account is needed.
 
 **[Open the guide](https://jimineybillybob1.github.io/graveyard-keeper-2-guide/)**
 
@@ -8,7 +8,7 @@ A personal Graveyard Keeper II companion, designed for touch use on an iPad. Thi
 
 Open `index.html` in a browser, or serve this directory with any static web server. All application code, game icons and the world map are included. Typography uses Google Fonts when available, with system fallbacks.
 
-For a predictable save location, keep using the same browser and address. The published link works on iPad and PC. Each browser stores its own progress; export/import transfers it manually. Progress from the local preview at `http://127.0.0.1:4173/` must be exported there and imported on the published site.
+For a predictable save location, keep using the same browser and address. The published link works on iPad and PC. Each browser stores its own progress; cloud save/load or export/import transfers it between devices. Progress from the local preview at `http://127.0.0.1:4173/` must be exported there and imported on the published site.
 
 ## Included
 
@@ -34,15 +34,15 @@ The chapter routes are concise guidance, not a reproduction of the source walkth
 
 Story visibility hides later quest stages and character cards. Item names, the physical map and planner milestones can reveal game systems. Full story visibility can be enabled in Save & settings.
 
-## Saving and future sync
+## Saving and cloud sync
 
 Local progress is stored under `keeper-ledger-v1`. Export a backup before importing, clearing browser data, changing the serving address or moving to a new device. Import validates the schema and asks before replacing progress. A backup is a guide progress file, not a Graveyard Keeper game save.
 
-Cloud sync is deferred. A future service should keep the static frontend, authenticate users, store this progress document per account, enforce owner-only access, and resolve conflicts explicitly using revisions. Credentials must never be embedded in this public site. The current timestamp is informational, not a cloud conflict-resolution mechanism.
+Open **Save & sync**, create a private code and select **Save to cloud**. On another device, enter the same code, select **Use this code**, then **Load from cloud**. Save before switching devices; loading and uploading are deliberate actions. The guide checks for updates on reopening or reconnecting but does not silently replace progress. Keep the code somewhere private: anyone with it can access or delete its cloud save, and a lost code cannot be recovered. Pokémon guide codes are separate. See [CLOUD_SYNC.md](CLOUD_SYNC.md) for operation and recovery details.
 
 ## GitHub Pages deployment
 
-GitHub Pages publishes the root of the `main` branch in [this repository](https://github.com/jimineybillybob1/graveyard-keeper-2-guide). Push updates to `main` to publish changes. No build step, backend, absolute asset path or secret is needed. Navigation uses URL hashes, so repository subpaths and reloads work. `.nojekyll` is included. The game art and source-data attribution are retained in the guide; they are not covered by a new blanket open-source licence.
+GitHub Pages publishes the root of the `main` branch in [this repository](https://github.com/jimineybillybob1/graveyard-keeper-2-guide). Push updates to `main` to publish changes. The frontend needs no build step or secret. Cloud saves use a separately deployed Cloudflare Worker; its public endpoint is in sync-config.js. Navigation uses URL hashes, so repository subpaths and reloads work. `.nojekyll` is included. The game art and source-data attribution are retained in the guide; they are not covered by a new blanket open-source licence.
 
 ## Verification
 

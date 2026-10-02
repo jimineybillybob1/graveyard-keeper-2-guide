@@ -1,0 +1,11 @@
+{
+  "name": "graveyard-keeper-2-guide-sync",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": { "wrangler": "4.146.0" },
+  "engines": { "node": ">=22" }
+}
